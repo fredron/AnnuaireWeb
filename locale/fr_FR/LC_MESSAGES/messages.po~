@@ -1,0 +1,452 @@
+# phpMyAddressbook
+# Copyright (C) 2000-2015 Ploc
+# This file is distributed under the same license as the phpMyAddressbook package.
+# phpMyAddressbook <phpmyaddressbook [at] acampado.net>, 2000-2015
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-27 14:24+0200\n"
+"PO-Revision-Date: 2005-06-05 00:00+0100\n"
+"Last-Translator: phpMyAddressbook <phpmyaddressbook [at] acampado.net>\n"
+"Language-Team: french <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config.inc.php:102
+#, php-format
+msgid "the timezone identifier %s defined in configuration file is not valid"
+msgstr ""
+"l'identifiant de fuseau horaire %s défini dans le fichier de configuration "
+"n'est pas valide"
+
+#: config.inc.php:106
+msgid "contact"
+msgstr "contact"
+
+#: config.inc.php:107
+msgid "contacts"
+msgstr "contacts"
+
+#: config.inc.php:108
+msgid "search"
+msgstr "rechercher"
+
+#: config.inc.php:109
+#, php-format
+msgid "call number %s"
+msgstr "appeler le numéro %s"
+
+#: config.inc.php:110
+#, php-format
+msgid "send an email to %s"
+msgstr "envoyer un email à %s"
+
+#: config.inc.php:111
+#, php-format
+msgid "browse website %s"
+msgstr "visiter le site web %s"
+
+#: config.inc.php:112
+msgid "cancel deletion"
+msgstr "annuler la suppression"
+
+#: config.inc.php:113
+msgid "*"
+msgstr "*"
+
+#: config.inc.php:115
+msgid "addressbook"
+msgstr "carnet d'adresses"
+
+#: config.inc.php:118
+msgid "Installation report :"
+msgstr "Rapport d'installation :"
+
+#: config.inc.php:119
+#, php-format
+msgid "database engine is %s"
+msgstr "le moteur de base de données est %s"
+
+#: config.inc.php:120
+#, php-format
+msgid "server is %s, user is %s"
+msgstr "le serveur est %s, le nom d'utilisateur est %s"
+
+#: config.inc.php:121
+#, php-format
+msgid "table %s has been created on database %s"
+msgstr "la table %s a été créée dans la base de données %s"
+
+#: config.inc.php:122
+msgid "triggers have been created (sqlite only)"
+msgstr "les triggers ont été créé (uniquement pour sqlite)"
+
+#: config.inc.php:123
+#, php-format
+msgid "installation failed due to the following error : %s"
+msgstr "l'installation a échoué suite à l'erreur suivante : %s"
+
+#: config.inc.php:124
+#, php-format
+msgid "Installation completed, you can now use %s !"
+msgstr "L'installation est terminée, vous pouvez maintenant utiliser %s !"
+
+#: config.inc.php:125
+msgid "Installation failed, sorry !"
+msgstr "L'installation a échoué, désolé !"
+
+#: config.inc.php:132
+msgid "welcome"
+msgstr "bienvenue"
+
+#: config.inc.php:135
+msgid "search for contacts whose"
+msgstr "rechercher les contacts dont le champ"
+
+#: config.inc.php:136
+#, php-format
+msgid "search for contacts whose %s %s %s"
+msgstr "rechercher les contacts dont le champ %s %s %s"
+
+#: config.inc.php:137
+#, php-format
+msgid "there are %s contacts whose %s %s %s"
+msgstr "il y a %s contacts dont le champ %s %s %s"
+
+#: config.inc.php:141
+#, php-format
+msgid "display contact %s"
+msgstr "afficher le contact %s"
+
+#: config.inc.php:142
+msgid "here is the contact you requested"
+msgstr "voici le contact que vous avez demandé"
+
+#: config.inc.php:145
+msgid "new contact"
+msgstr "nouveau contact"
+
+#: config.inc.php:146
+msgid "add a new contact"
+msgstr "ajouter un nouveau contact"
+
+#: config.inc.php:147
+msgid "you can add a new contact"
+msgstr "vous pouvez ajouter un nouveau contact"
+
+#: config.inc.php:151
+msgid "add"
+msgstr "ajouter"
+
+#: config.inc.php:152
+msgid "contact has been added"
+msgstr "le contact a été ajouté"
+
+#: config.inc.php:156
+msgid "duplicate"
+msgstr "dupliquer"
+
+#: config.inc.php:157
+msgid "you can duplicate this contact"
+msgstr "vous pouvez dupliquer ce contact"
+
+#: config.inc.php:161
+msgid "edit"
+msgstr "modifier"
+
+#: config.inc.php:162
+msgid "contact has been updated"
+msgstr "le contact a été modifié"
+
+#: config.inc.php:166
+msgid "delete"
+msgstr "supprimer"
+
+#: config.inc.php:167
+msgid "contact has been deleted"
+msgstr "le contact a été supprimé"
+
+#: config.inc.php:170
+#, php-format
+msgid "export listed contacts in format %s"
+msgstr "exporter les contacts listés au format %s"
+
+#: config.inc.php:172
+#, php-format
+msgid "contacts whose %s %s %s have been exported to %s"
+msgstr "les contacts dont le champ %s %s %s ont été exportés dans %s"
+
+#: config.inc.php:175
+#, php-format
+msgid "import some contacts from a %s file"
+msgstr "importer des contacts depuis un fichier %s"
+
+#: config.inc.php:177
+#, php-format
+msgid "contacts have been imported from %s"
+msgstr "les contacts ont été importés depuis %s"
+
+#: config.inc.php:179
+#, php-format
+msgid "an error occurred : %s"
+msgstr "une erreur est survenue : %s"
+
+#: config.inc.php:220
+msgid "is"
+msgstr "est"
+
+#: config.inc.php:226
+msgid "contains"
+msgstr "contient"
+
+#: config.inc.php:232
+msgid "does not contain"
+msgstr "ne contient pas"
+
+#: config.inc.php:238
+msgid "starts with"
+msgstr "commence par"
+
+#: config.inc.php:265
+msgid "booklet"
+msgstr "carnet"
+
+#: config.inc.php:271
+msgid "label"
+msgstr "étiquette"
+
+#: config.inc.php:277
+msgid "sql"
+msgstr "sql"
+
+#: config.inc.php:283
+msgid "ldif"
+msgstr "ldif"
+
+#: config.inc.php:289
+msgid "vcard"
+msgstr "vcard"
+
+#: config.inc.php:295
+msgid "csv"
+msgstr "csv"
+
+#: config.inc.php:301
+msgid "zimbra"
+msgstr "zimbra"
+
+#: config.inc.php:307 user_fields.inc.php:107
+msgid "email"
+msgstr "email"
+
+#: config.inc.php:313
+msgid "sim"
+msgstr "sim"
+
+#: config.inc.php:319
+msgid "mab"
+msgstr "mab"
+
+#: config.inc.php:325
+msgid "text"
+msgstr "texte"
+
+#: config.inc.php:331
+msgid "mailing"
+msgstr "mailing"
+
+#: config.inc.php:338
+msgid "updating my addressbook"
+msgstr "mise à jour de mon carnet d'adresses"
+
+#: config.inc.php:339
+msgid ""
+"Hello,\n"
+"\n"
+"If the following information below are not accurate, please send me an email "
+"so that I can update my addressbook."
+msgstr ""
+"Bonjour,\n"
+"\n"
+"Si les informations ci-dessous sont inexactes, merci de m'en informer par "
+"mail avec vos nouvelles coordonnées afin que je puisse mettre à jour mon "
+"carnet d'adresses."
+
+#: config.inc.php:340
+msgid "Thank you."
+msgstr "Merci."
+
+#: config.inc.php:343
+msgid "start of mailing"
+msgstr "début du mailing"
+
+#: config.inc.php:344
+#, php-format
+msgid "trying to send email to %s"
+msgstr "tentative d'envoi d'un mail à %s"
+
+#: config.inc.php:345
+msgid ", sending successful"
+msgstr ", envoi réussi"
+
+#: config.inc.php:346
+msgid ", sending failed"
+msgstr ", envoi échoué"
+
+#: config.inc.php:347
+#, php-format
+msgid "%s mails sent without error, %s mails probably not sent "
+msgstr "%s mails envoyés sans erreur, %s mails probablement non envoyés"
+
+#: config.inc.php:348
+msgid "end of mailing"
+msgstr "fin du mailing"
+
+#: export.inc.php:38 import.inc.php:56 index.php:26 install.php:26
+#, php-format
+msgid "configuration file contains an error : %s"
+msgstr "le fichier de configuration contient une erreur : %s"
+
+#: export.inc.php:58
+#, php-format
+msgid "export format %s is disabled in the configuration file"
+msgstr "le format d'export %s est désactivé dans le fichier de configuration"
+
+#: export.inc.php:86 export_mailing.inc.php:75
+#, php-format
+msgid "file %s is not writable"
+msgstr "le fichier %s ne peut être ouvert en écriture"
+
+#: export.inc.php:89 export_mailing.inc.php:78 export_mailing.inc.php:144
+#: export_mailing.inc.php:153 export_mailing.inc.php:158
+#, php-format
+msgid "writing into the file %s failed"
+msgstr "l'écriture dans le fichier %s a échoué"
+
+#: export.inc.php:96
+#, php-format
+msgid "no exportMode defined for export format %s in the configuration file"
+msgstr ""
+"aucun exportMode défini pour le format d'export %s dans le fichier de "
+"configuration"
+
+#: export_mailing.inc.php:70
+msgid ""
+"mailingSenderEmail parameter is null and must be defined in user "
+"configuration file"
+msgstr ""
+"le paramètre mailingSenderEmail doit être défini dans le fichier de "
+"configuration utilisateur"
+
+#: export_mailing.inc.php:166
+msgid "one or more mails have not been sent"
+msgstr "un ou plusieurs mails n'ont pu être envoyés"
+
+#: filesystem.inc.php:45
+#, php-format
+msgid "directory %s does not exist"
+msgstr "le répertoire %s n'existe pas"
+
+#: filesystem.inc.php:54
+#, php-format
+msgid "directory %s is not readable"
+msgstr "le répertoire %s ne peut être ouvert en lecture"
+
+#: import_csv.inc.php:30
+#, php-format
+msgid "file %s is not readable"
+msgstr "le fichier %s ne peut être ouvert en lecture"
+
+#: import_csv.inc.php:37
+msgid "header is not valid as defined in the configuration file"
+msgstr ""
+"l'entête n'est pas valide tel que défini dans le fichier de configuration"
+
+#: import_csv.inc.php:52
+#, php-format
+msgid ""
+"number of fields (%s) of a line differs from the number of field (%s) of the "
+"header"
+msgstr ""
+"le nombre de champ (%s) d'une ligne diffère du nombre de champ (%s) de "
+"l'entête"
+
+#: import.inc.php:75
+#, php-format
+msgid "directory %s contains no file or more than one file"
+msgstr "le répertoire %s ne contient aucun fichier ou plus d'un fichier"
+
+#: import.inc.php:79
+#, php-format
+msgid "import format %s is disabled in the configuration file"
+msgstr "le format d'import %s est désactivé dans le fichier de configuration"
+
+#: import.inc.php:97
+#, php-format
+msgid "moving the import file %s to archive directory %s failed"
+msgstr ""
+"l'archivage du fichier importé %s dans le répertoire des archives %s a échoué"
+
+#: user_fields.inc.php:35
+msgid "family name"
+msgstr "nom"
+
+#: user_fields.inc.php:36
+msgid "(unnamed)"
+msgstr "(sans nom)"
+
+#: user_fields.inc.php:37
+msgid "name is mandatory"
+msgstr "le nom est obligatoire"
+
+#: user_fields.inc.php:44
+msgid "first name"
+msgstr "prénom"
+
+#: user_fields.inc.php:53
+msgid "postal address"
+msgstr "adresse"
+
+#: user_fields.inc.php:62
+msgid "postal code"
+msgstr "code postal"
+
+#: user_fields.inc.php:71
+msgid "city"
+msgstr "ville"
+
+#: user_fields.inc.php:80
+msgid "country"
+msgstr "pays"
+
+#: user_fields.inc.php:89
+msgid "home phone"
+msgstr "téléphone fixe"
+
+#: user_fields.inc.php:98
+msgid "mobile phone"
+msgstr "téléphone mobile"
+
+#: user_fields.inc.php:109
+msgid "enter a valid email"
+msgstr "entrez une adresse email valide"
+
+#: user_fields.inc.php:116
+msgid "website"
+msgstr "site web"
+
+#: user_fields.inc.php:118
+msgid "enter a valid url"
+msgstr "entrez une url valide"
+
+#: user_fields.inc.php:125
+msgid "comments"
+msgstr "commentaires"
+
+#: user_fields.inc.php:134
+msgid "tags"
+msgstr "catégories"

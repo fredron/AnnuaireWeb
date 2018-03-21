@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="%charset%"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="%contentLanguage%" lang="%contentLanguage%">
+<head>
+ <meta charset="%charset%" />
+ <title>%title%</title>
+ <link rel="stylesheet" type="text/css" media="screen" href="%cssFilename%" />
+</head>
+<body>
+<table width="100%">
+	<tr>
+		<td width="40%">
+		<img src="marianne2.png" alt="Marianne SNA/RP" align="right"/>
+		</td>
+		<td>
+		<div style="color:#0059b3"><h1>Annuaire Superviseur</h1></div>
+		</td>
+	</tr>
+</table>
+
+<div class="container">
+
+<header>
+
+<form id="search" method="get" action="%formAction%">
+<p>
+%searchLabel%
+<select name="searchField">
+%searchFieldItems%
+</select>
+<select name="searchOperator">
+%searchOperatorItems%
+</select>
+<input type="search" name="searchValue" value="%searchValue%" size="12" autofocus="autofocus" />
+<input type="hidden" name="action" value="%nextSearchAction%" />
+<input type="hidden" name="id" value="" />
+<input type="hidden" name="exportFormat" value="" />
+<input type="submit" value="%searchButtonLabel%" />
+</p>
+</form>
+
+%export%
+%import%
+%alphabetShortcut%
+%tagsShortcut%
+
+</header>
+
+<section class="info">
+%infoMessage%
+</section><!-- end info -->
+
+<nav class="list">
+%recordList%
+</nav><!-- end list -->
+
+<article class="record">
+%record%
+</article><!-- end record -->
+
+<footer>
+%footer%
+</footer>
+
+</div><!-- end container -->
+</body>
+</html>

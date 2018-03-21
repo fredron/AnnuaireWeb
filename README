@@ -1,0 +1,290 @@
++-----------------------------------------------------------------------------+
+| phpMyAddressbook - personal addressbook                                     |
+|-----------------------------------------------------------------------------|
+| Copyright (C) 2000-2015 Ploc                                                |
+|-----------------------------------------------------------------------------|
+| http://ploc.acampado.net/phpmyaddressbook/                                  |
+| mailto:phpmyaddressbook [at] acampado.net                                   |
+|-----------------------------------------------------------------------------|
+| This file is part of phpMyAddressbook.                                      |
+|                                                                             |
+| phpMyAddressbook is free software: you can redistribute it and/or modify    |
+| it under the terms of the GNU General Public License as published by        |
+| the Free Software Foundation, either version 3 of the License, or           |
+| (at your option) any later version.                                         |
+|                                                                             |
+| phpMyAddressbook is distributed in the hope that it will be useful,         |
+| but WITHOUT ANY WARRANTY; without even the implied warranty of              |
+| MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               |
+| GNU General Public License for more details.                                |
+|                                                                             |
+| You should have received a copy of the GNU General Public License           |
+| along with phpMyAddressbook.  If not, see <http://www.gnu.org/licenses/>.   |
+|-----------------------------------------------------------------------------|
+|                                   README                                    |
++-----------------------------------------------------------------------------+
+
+- phpMyAddressbook is a personal addressbook using php, fpdf and any pdo
+  supported database engine (currently implemented database engines are
+  sqlite and mysql).
+
+- phpMyAddressbook main language is english but it can be easily translated
+  as it uses gettext. French language package is available and enabled by
+  default.
+
+- phpMyAddressbook is highly customizable as it can potentially handle
+  unlimited number of fields. Many parameters can be set in configuration
+  files.
+
+- phpMyAddressbook can export records to various formats such as pdf booklet,
+  pdf labels, sql, ldif, vcard, csv, zimbra, mab. It can also send basic
+  mass-mailings to get a human validation from your contacts. Besides,
+  phpMyAddressbook can import csv data if the csv file fits the database
+  structure.
+
+- phpMyAddressbook can export phone numbers to a sim card with the help of
+  gsmcard <http://developer.berlios.de/projects/gsmcard/> software.
+
+- phpMyAddressbook includes icons from the Tango Desktop Projet
+  <http://tango.freedesktop.org/>, fpdf <http://fpdf.org/> as the pdf
+  generator and pdf label <http://fpdf.org/fr/script/script29.php> as the pdf
+  label generator.
+
+
+|-----------------------------------------------------------------------------|
+|                                REQUIREMENTS                                 |
++-----------------------------------------------------------------------------+
+
+- a web server
+- php 5 (or later) with pdo enabled
+- a database engine : sqlite or mysql
+
+
+|-----------------------------------------------------------------------------|
+|                                INSTALLATION                                 |
++-----------------------------------------------------------------------------+
+
+- Extract the downloaded archive in a directory of your web server.
+
+- If you want to use apache authentication, rename the file named htaccess to
+  .htaccess and edit the file in order to refer to your own .htpasswd file.
+
+- The user configuration file named user_config.inc.php allows you to set the
+  behaviour of phpMyAddressbook. Any setting from the main configuration file
+  named config.inc.php can be overriden in the user configuration file.
+  Please read the MANUAL file for more information.
+
+- Edit the user configuration file named user_config.inc.php according to the
+  configuration of your database. Default settings enable an embedded sqlite
+  database to store your data. If you prefer to use mysql, set $dbEngine to
+  mysql and set the mysql parameters according to your mysql configuration.
+
+- If you set a mysql database, check that the mysql database named $dbName
+  already exists on your mysql server and that the mysql user named $dbLogin
+  has write access on it (create, alter, insert, update, delete).
+
+- Open your browser and browse the script named install.php (this script
+  creates the table that will hold your data). If your browser displays an
+  error about gettext, check that gettext extension is enabled in your php
+  configuration, or disable gettext in the main configuration file named
+  config.inc.php. If your browser displays an error about the database, check
+  the database settings in the user configuration file and that the table
+  named $dbTable does not already exist in your database.
+
+- If your browser displays that the installation completed, you can start to
+  enter your data.
+
+
+|-----------------------------------------------------------------------------|
+|                                    TODO                                     |
++-----------------------------------------------------------------------------+
+
+- Add : various types of content.
+- Add : multiple search criteria.
+- End of todo list.
+
+
+|-----------------------------------------------------------------------------|
+|                                  CHANGELOG                                  |
++-----------------------------------------------------------------------------+
+
+27-06-2015 v2.4
+- Add : tags are exported to vcard.
+- Update : fpdf updated to version 1.7.
+- Update : various improvements.
+- Bugfix : parameters checks secured.
+
+12-12-2012 v2.3
+- Add : html5 email, tel, url and search input types.
+- Add : html5 autofocus attribute.
+- Add : html5 placeholder attribute.
+- Add : html5 required attribute.
+- Add : html5 pattern attribute.
+- Add : css images included in css file.
+- Update : html5 template.
+- Update : various improvements.
+- Remove : suggested value.
+
+01-08-2011 v2.2
+- Add : click-to-call shortcut.
+- Add : modular theme management.
+- Update : icons.
+
+16-05-2011 v2.1
+- Add : log file when sending a mailing.
+- Update : various improvements.
+- Bugfix : parameters checks secured.
+
+07-04-2010 v2.0
+- Add : duplicate feature.
+- Add : records fields display can be organized by groups.
+- Add : vcard export module.
+- Add : label export module.
+- Add : text export module.
+- Update : exception error management.
+- Update : search feature automatically displays first found record.
+- Update : tableless template.
+- Update : parameters checks secured.
+- Update : various improvements.
+- Bugfix : gettext configuration is charset compliant.
+- Bugfix : delete feature works with old version of sqlite library.
+- Bugfix : sim export module set to gsm 7-bit charset.
+
+05-02-2009 v1.9
+- Add : csv import module.
+- Add : sqlite support.
+- Add : database access uses pdo.
+- Add : sql statements are sql ansi compliant.
+- Add : css filename can be set in configuration files.
+- Add : zimbra export module.
+- Add : a manual.
+- Update : csv export module escapes special characters.
+- Update : mab export module escapes special characters.
+- Update : mass-mailer is integrated to the interface.
+- Update : installation is integrated to the interface.
+- Update : phpMyAddressbook updated to php5.
+- Update : fpdf updated to version 1.6.
+- Update : compatible with notice and strict error reporting level.
+- Update : various improvements.
+- Bugfix : numeric values are correctly handled.
+- Bugfix : search feature is always consistent.
+- Bugfix : mab export module always generates a valid file.
+
+22-04-2008 v1.8
+- Add : mass-mailer in order to get a human validation from your contacts.
+- Add : mab export module.
+- Add : server side file export.
+- Update : various improvements.
+- Bugfix : email, ldif and sim export modules filter null email records.
+- Bugfix : ldif export module correctly handles name and firstname.
+- Bugfix : sim export module charset set to an unknown but working charset.
+
+07-11-2007 v1.7
+- Add : tag feature.
+- Add : tag shortcut.
+- Update : export feature is compliant with shortcuts and search feature.
+- Update : shortcuts display can be enabled or disabled.
+- Update : config.inc.php settings can be overridden in user_config.inc.php file.
+- Update : csv export module format is simpler.
+- Update : switch to GPLv3.
+- Bugfix : update statement correctly handles numeric data.
+- Bugfix : records with html special characters are correctly handled.
+
+28-02-2007 v1.6
+- Add : .htaccess authentication example file.
+- Update : gettext activation check.
+- Update : database connection function.
+- Update : configuration files.
+- Update : various improvements.
+- Bugfix : installation connects the database.
+
+18-01-2007 v1.5
+- Update : icons (from Tango Desktop Project).
+- Update : default charset set to utf8.
+- Update : template uses xhtml 1.1.
+- Update : sql export module is more flexible.
+- Bugfix : language setting is correctly set in xhtml template.
+
+06-03-2006 v1.4
+- Update : compatible with register_globals php parameter set to off.
+- Update : parameters checks secured.
+- Update : generic export module.
+- Bugfix : data are correctly exported to the pdf document.
+
+17-08-2005 v1.3
+- Update : css slightly modified.
+- Update : parameters checks are slightly modified.
+- Bugfix : parameters checks work.
+- Bugfix : export filenames are based on the table name.
+
+05-06-2005 v1.2
+- Add : sim card export module.
+- Add : internationalization using gettext.
+- Add : phpMyAddressbook can handle unlimited number of fields.
+- Add : each field has a default value and a suggested value.
+- Update : all export filenames are timestamped.
+- Update : using fpdf153.
+- Remove : javascript confirm script.
+
+12-10-2004 v1.1
+- Add : csv export module.
+- Add : secured data handling.
+- Update : full revision of the code (less code means less bug).
+- Update : redesigned interface is simpler and more efficient.
+- Update : template is xhtml strict valid and uses css.
+- Update : all icons are in png format.
+- Update : icons.
+- Update : using fpdf152.
+
+09-05-2003 v1.0
+- Update : pdf export module has a 2-sided printing capability.
+- Update : full revision of the code to fulfill the pear coding standards.
+- Update : using fpdf151.
+- Update : various improvements.
+
+02-03-2003 v0.9
+- Add : ldif export module.
+- Add : combo box to choose the export format.
+- Update : search box.
+- Update : various improvements.
+
+05-04-2002 v0.8
+- Add : pdf export module.
+- Add : text export module.
+- Update : records are sorted depending on a field.
+- Update : phpMyAddressbook updated to php4.
+- Update : various improvements.
+- Remove : print export module.
+- Bugfix : cellphone is correctly set when adding a record.
+
+03-07-2001 v0.7
+- Update : full revision of the code (optimization, harmonization, comments).
+- Update : automatic database structure management.
+- Update : various improvements.
+
+08-06-2001 v0.6
+- Add : print export module.
+- Update : various improvements.
+
+04-05-2001 v0.5
+- Update : sql export file is downloaded.
+- Update : various improvements.
+
+22-04-2001 v0.4
+- Add : confirmation before deleting a record.
+
+02-04-2001 v0.3
+- Add : record delete feature.
+- Update : search mode is case insensitive.
+
+20-12-2000 v0.2
+- Add : sql export module.
+- Update : icons.
+
+27-10-2000 v0.1
+- Initial release.
+
+
+|-----------------------------------------------------------------------------|
+|                                     END                                     |
++-----------------------------------------------------------------------------+

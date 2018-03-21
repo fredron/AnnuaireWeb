@@ -1,0 +1,71 @@
+Voici quelques informations utiles à la maintenance du code concernant l'export du carnet d'adresse au format pdf.
+
+          ----- grande page (21 x 29,7 cm) -----
+
+                         largeur
+                            x
+          ------------------------------------->
+          |
+          |                        595
+          |              <--------------------->
+          |                  297
+          |              <---------->
+          |              _______________________
+          |     ^     ^  |          |          |
+          |     |     |  |          |          |
+          |     |     |  |  petite  |          |
+          |     | 421 |  |   page   |          |
+hauteur y |     |     |  |          |          |
+          |     |     |  |          |          |
+          |     |     |  |          |          |
+          | 842 |     v  |---------------------|
+          |     |        |          |          |
+          |     |        |          |          |
+          |     |        |          |          |
+          |     |        |          |          |
+          |     |        |          |          |
+          |     |        |          |          |
+          |     |        |          |          |
+          v     v        _______________________
+
+          ---------- ajustement du nombre de petites pages ----------
+
+Dans un premier temps, il faut s'assurer que toute grande page contiendra bien 4 petites pages. Il faut donc compléter le tableau de données pour ajouter - si nécessaire - des petites pages vides à la fin du tableau de données. Pour cela, il suffit de rajouter une page vide en fin de tableau de données tant que le reste de la division du nombre de pages par 4 est différent de 0.
+
+Il faut dans un second temps s'assurer que chaque feuille sera bien imprimable en mode recto-verso. Il faut donc compléter le tableau de données pour ajouter - si nécessaire - 4 petites pages vides au milieu du tableau de données (ça peut paraître étrange mais ca marche, vérifiez !). Pour cela, il suffit de rajouter 4 pages vides au milieu du tableau de données si le reste de la division du nombre de pages par 8 est différent de 0.
+
+          ---------- répartition en petites pages ----------
+
+Une fois que le nombre de petites pages est un multiple de 8, on sait que toutes les grandes pages seront totalement remplies (même avec des petites pages vides) et que toutes les feuilles seront imprimables en mode recto-verso. Il ne reste plus qu'à répartir les petites pages comme indiqué sur le schéma suivant, de manière à permettre une impression recto-verso (là aussi, ca peut paraître étrange mais ca marche, vérifiez !).
+           _______    _______    _______    _______
+          |   |   |  |   |   |  |   |   |  |   |   |
+          | n | 1 |  | 2 |n-1|  |n-4| 5 |  | 6 |n-5|
+          |___|___|  |___|___|  |___|___|  |___|___|
+          |   |   |  |   |   |  |   |   |  |   |   |
+          |n-2| 3 |  | 4 |n-3|  |n-6| 7 |  | 8 |n-7|
+          |___|___|  |___|___|  |___|___|  |___|___|
+
+Pour arriver à cette répartition, il faut savoir que l'objet PdfMyAddressbook recoit un tableau de 4 petites pages qu'il réparti selon l'ordre suivant :
+           _______
+          |   |   |
+          | 1 | 2 |
+          |___|___|
+          |   |   |
+          | 3 | 4 |
+          |___|___|
+
+Pour répartir les petites pages dans les grandes pages selon l'ordre précedemment indiqué, il faut donc suivre l'algorithme suivant :
+
+grandesPages[1] = petitesPages[derniere]   /* correspond à la page n */
+grandesPages[1] = petitesPages[premiere]   /* correspond à la page 1 */
+           tmp1 = petitesPages[premiere]   /* correspond à la page 2 */
+           tmp2 = petitesPages[derniere]   /* correspond à la page n-1 */
+grandesPages[1] = petitesPages[derniere]   /* correspond à la page n-2 */
+grandesPages[1] = petitesPages[premiere]   /* correspond à la page 3 */
+
+grandesPages[2] = tmp1                     /* correspond à la page 2 */
+grandesPages[2] = tmp2                     /* correspond à la page n-1 */
+grandesPages[2] = petitesPages[premiere]   /* correspond à la page 4 */
+grandesPages[2] = petitesPages[derniere]   /* correspond à la page n-3 */
+
+grandesPages[3] = ...

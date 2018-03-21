@@ -1,0 +1,7 @@
+AuthUserFile private/.htpasswd
+AuthGroupFile /dev/null
+AuthName "auth"
+AuthType Basic
+<Limit GET POST>
+require valid-user
+</Limit>

@@ -1,0 +1,4 @@
+"name","firstname","address","zipcode","city","country","homephone","cellphone","email","website","comments","tags"
+"Doe","John","212 Main street","10012","New York","USA","+(1) 212-111-1111","+(1) 212-100-1000","john@doe.com","http://john.doe/","a friend from school","amis"
+"Fissile","Teddy","3 rue de la difficulté","75011","Paris","France","01 23 45 67 89","01 23 45 67 90","teddy.fissile@email.com","http://email.com/teddyfissile/","mon voisin","famille"
+"Fonfec","Sophie","17 avenue de la charcuterie","03333","Nantes","France","+33 2 34 56 78 90","+33 2 34 56 78 91","sophie.fonfec@email.com","http://fonfec.name/sophie/","un vrai boudin","amis, boulot"

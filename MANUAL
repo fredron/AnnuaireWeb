@@ -1,0 +1,160 @@
+phpMyAddressbook is a powerful application as you can set many parameters to change the way it behave. This manual aims to let you set advanced configuration settings.
+
+You shouldn't have to modify the main configuration file config.inc.php. The best way to set your own parameters is :
+- to edit the user fields configuration file user_fields.inc.php to add or remove some fields depending on your needs (removing default fields can break features).
+- to edit the user configuration file user_config.inc.php to add or modify the parameters you want (every parameter in the user configuration file overrides a similar default parameter set in the main configuration file).
+
+
+----- search tips -----
+no file modification needed
+
+
+- While using phpMyAddressbook, you can search for records using the hidden operators "is null" and "is not null". This can be done using the special sql character underscore "_". While a percent symbol "%" in the pattern matches any sequence of zero or more characters in the string, an underscore "_" in the pattern matches any single character in the string. You can therefore obtain an equivalent to "is null" and "is not null" using the following syntax.
+
+"does not contain _" equals to "is null"
+"contains _"         equals to "is not null"
+
+
+----- user fields settings -----
+modifications take place in the file user_fields.inc.php
+
+
+- Standard user fields suit for an addressbook but you may want to define your own attributes such as a company name or a fax number. The following example adds 2 attributes to the standard set of attributes $userFieldsList. You can easily remove a user field by deleting the corresponding lines. The very important thing to know is that you have to set these attributes in the user configuration file before proceeding to the installation script (the installation script creates the database used to store the data and therefore has to know which fields to create).
+
+$userFieldsList["company_name"] = array("name" => "company_name",
+                                        "databaseType" => "text",
+                                        "htmlType" => "text",
+                                        "pattern" => null,
+                                        "label" => _("company name"),
+                                        "defaultValue" => null,
+                                        "placeholder" => null,
+                                        "required" => true);
+
+$userFieldsList["fax"] = array("name" => "fax",
+                               "databaseType" => "text",
+                               "htmlType" => "tel",
+                               "pattern" => null,
+                               "label" => _("fax"),
+                               "defaultValue" => _("no fax number"),
+                               "placeholder" => _("enter the fax number"),
+                               "required" => false);
+
+
+- If you remove fields, do it carefully, as you may inadvertently lose functionality.
+
+
+- User fields can be organized and displayed by groups. The following example separates the standard user fields in two groups.
+
+$displayUserFieldsList = array();
+$displayUserFieldsList[$recordLabel] = array($userFieldsList["name"],
+                                             $userFieldsList["firstname"],
+                                             $userFieldsList["address"],
+                                             $userFieldsList["zipcode"],
+                                             $userFieldsList["city"],
+                                             $userFieldsList["country"],
+                                             $userFieldsList["homephone"],
+                                             $userFieldsList["cellphone"]);
+
+$displayUserFieldsList["internet"] =   array($userFieldsList["email"],
+                                             $userFieldsList["website"]);
+
+$displayUserFieldsList["misc"] =       array($userFieldsList["comments"],
+                                             $userFieldsList["tags"]);
+
+
+----- user configuration settings -----
+modifications take place in the file user_config.inc.php
+
+
+- If you want to use the mass-mailing feature, set $mailingSenderEmail to the email which will be the sender email of mails sent by phpMyAddressbook. You can also set $mailingSenderName which is the name of the sender.
+
+$mailingSenderEmail = "email@example.com";
+$mailingSenderName = "Sender Name";
+
+
+- Once these parameters are set, the mass-mailing feature should work provided that the mail php function is enabled. You can then set the subject and the content of mails sent with the mass-mailing feature.
+
+$mailingSubject = _("This is my subject");
+$mailingHeader =  _("Hello,\n\nThis is my introduction.");
+$mailingFooter =  _("This is my conclusion.");
+
+
+- If you want to use the click-to-call feature, set $clickToCallURL to the URL of your click-to-call service (where %s stands for the number you want to call).
+
+$clickToCallURL = "http://asterisk.server/path/page.php?caller=usernumber&callie=%s";
+
+
+- If you don't want to use some shortcuts or tooltips, you can set them to false.
+
+$alphabetShortcutDisplay = false;
+$alphabetShortcutTooltipDisplay = false;
+$tagShortcutDisplay = false;
+$tagShortcutTooltipDisplay = false;
+$recordListTooltipDisplay = false;
+$groupMailtoShortcutDisplay = false;
+$groupMailtoShortcutTooltipDisplay = false;
+$userCallShortcutDisplay = true;
+$userCallShortcutTooltipDisplay = true;
+$userMailtoShortcutDisplay = false;
+$userMailtoShortcutTooltipDisplay = false;
+$userBrowseShortcutDisplay = false;
+$userBrowseShortcutTooltipDisplay = false;
+
+
+- If you want to reorder the id of your records each time you log in, you can set the $reorderIdOnLogin to true. The records will be reordered according to the $sortRecordsListFieldsList array values (see below).
+
+$reorderIdOnLogin = true;
+
+
+- While importing records from a file, you can delete all existing records in database before importing. Set $deleteBeforeImport to true if you want to enable this feature.
+
+$deleteBeforeImport = true;
+
+
+- If you want to prevent users from altering your data, you can disable some actions from $actionsList. You can prevent users from adding new records, editing existing records, deleting existing records, exporting or importing data.
+
+$actionsList["add"]["enabled"] = false;
+$actionsList["edit"]["enabled"] = false;
+$actionsList["delete"]["enabled"] = false;
+$actionsList["export"]["enabled"] = false;
+$actionsList["import"]["enabled"] = false;
+
+
+- Some of the attributes can be used as search criteria if they are significant. The following example adds the company name as a search criteria and removes the first name. You can also imagine new search operators and add them to $searchOperatorsList.
+
+$searchFieldsList["company_name"] = $userFieldsList["company_name"];
+unset($searchFieldsList["firstname"]);
+
+
+- You can set which attributes should be displayed in the records list of a search result. The following example adds the company name as the last element of the array and removes the first element ("firstname" by default) from the records list.
+
+array_push($selectRecordsListFieldsList, $userFieldsList["company_name"]);
+array_shift($selectRecordsListFieldsList);
+
+
+- You can set which attributes should be used as ordering key while displaying the records list of a search result and while reordering id. The following example adds the company name as the last element of the array and removes the first element ("name" by default) from the ordering key.
+
+array_push($sortRecordsListFieldsList, $userFieldsList["company_name"]);
+array_shift($sortRecordsListFieldsList);
+
+
+- You can decide which export formats are enabled and which are not. You can set the filename template for each export format. You can also decide if the file will be exported to the client (downloaded on the client computer) or to the server (saved in the "export" folder). The following example changes these 3 parameters.
+
+$externalFormatsList["sql"]["exportEnabled"] = false;
+$externalFormatsList["csv"]["filenameTemplate"] = "myFilename_%date%.csv";
+$externalFormatsList["csv"]["exportMode"] = "server";
+
+
+- If you use the label export format, you can choose the Avery template. Available Avery templates are 3422, 5160, 5161, 5162, 5163, 5164, 7163, 8600. The following example sets the 3422 Avery template.
+
+$labelAveryTemplate = "3422";
+
+
+- If you created your own css file, you can copy it into the css directory and set $cssFilename to use it.
+
+$cssFilename = "my_own_css_file.css";
+
+
+- If you created your own theme (including html templates, css files and images), you can copy it into the themes directory and set $theme to use it.
+
+$theme = "my_own_theme";
